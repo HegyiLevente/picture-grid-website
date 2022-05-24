@@ -1,0 +1,283 @@
+/* GLOBAL STYLES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  --header1: calc(2rem + 1vw);
+  --header2: calc(3.2rem + 1vw);
+  --header3: calc(2.5rem + 1vw);
+  --header4: calc(2rem + 1vw);
+  --text: calc(1rem + 1vw);
+  --big: calc(6rem + 1vw);
+  --special-color: #906272;
+  --background-color: #414141;
+  --gray-text: #525252;
+}
+
+body {
+  animation: opening 1s ease-in-out;
+}
+
+@font-face {
+  font-family: "Ruhl";
+  src: url("./fonts/FrankRuhlLibre-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Ruhl-Medium";
+  src: url("./fonts/FrankRuhlLibre-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Vibes";
+  src: url("./fonts/GreatVibes-Regular.ttf");
+}
+
+h1 {
+  font-size: var(--header1);
+  font-family: Vibes, sans-serif;
+}
+
+li, p, button, input, label, a {
+  font-size: var(--text);
+}
+
+h2 {
+  font-size: var(--header2);
+}
+
+h3 {
+  font-size: var(--header3);
+}
+
+h4, h5 {
+  font-size: var(--header4);
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Nav Section */
+
+.main-header {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: relative;
+}
+
+nav {
+  width: 95%;
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
+  padding: 3rem 0rem;
+}
+
+#logo {
+  flex: 2 1 20rem;
+}
+
+.nav-links {
+  display: flex;
+  flex: 1 1 20rem;
+  justify-content: space-evenly;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links a:hover {
+  color: black;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.3rem;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  transform: scaleX(1);
+}
+
+.burger, .menu-check {
+  display: none;
+}
+
+
+/* Hero Section */
+
+.hero {
+  min-height: 90vh;
+  width: 95%;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.hero-introduction {
+  flex: 2 1 40rem;
+  text-align: center;
+}
+
+.hero-introduction h2 {
+  font-family: 'Ruhl-Medium';
+}
+
+.hero-introduction p {
+  padding: 8rem 6rem;
+  color: var(--gray-text);
+  font-family: 'Ruhl';
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-introduction a {
+  padding: 3rem 8rem;
+  border: 0.3rem solid black;
+}
+
+.hero-images {
+  flex: 1 1 40rem;
+  background: linear-gradient(#dad8dd, #dad1d4);
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-elena {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plant {
+  position: absolute;
+  left: -20%;
+  bottom: 0;
+  max-height: 80%;
+  z-index: -1;
+  transform: translateY(10%) rotateZ(-15deg) rotateX(90deg);
+  animation: plant-unfolding 1.7s ease-in-out 0.4s forwards, 
+    plant-shaking 2.5s ease infinite alternate-reverse 2s;
+  transform-origin: bottom;
+}
+
+.plant2 {
+  left: 45%;
+}
+
+@keyframes plant-unfolding {
+  from {
+    transform: translateY(10%) rotateZ(-15deg) rotateX(90deg);
+  }
+  to{
+    transform: translateY(0) rotateZ(0deg) rotateX(0deg);;
+  }
+}
+
+@keyframes plant-shaking {
+  from {
+    transform: rotateZ(5deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+
+/* About Section */
+
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1 1 40rem;
+  position: relative;
+}
+
+.about-image h5{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: white;
+  font-family: 'Ruhl-Medium';
+  letter-spacing: 1rem;
+  font-size: var(--big);
+  text-shadow: 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img{
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-description {
+  flex: 2 1 40rem;
+  justify-content: space-evenly;
+  background: var(--background-color);
+  color: white;
+}
+
+.about-description h2 {
+  padding: 3rem 0;
+  font-family: 'Vibes';
+}
+
+.about-description div {
+  padding: 2rem 8rem;
+}
+
+.about-description div h3{
+  padding: 2rem 0;
+  font-family: 'Ruhl-Medium';
+}
+
+.about-description div p {
+  padding: 1.5rem 0;
+  font-family: 'Ruhl';
+}
